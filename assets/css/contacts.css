@@ -1,0 +1,190 @@
+@import url("https://fonts.googleapis.com/css?family=Comfortaa");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+html {
+  height: 100%; }
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  -webkit-tap-highlight-color: transparent; }
+
+main {
+  flex-grow: 1; }
+
+a {
+  text-decoration: none; }
+
+.title {
+  font-weight: bold;
+  margin-bottom: 10px; }
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  font-family: sans-serif;
+  cursor: pointer; }
+  .header a {
+    position: absolute;
+    width: 20%;
+    text-align: center;
+    color: #333;
+    transition: .3s all;
+    z-index: 1000; }
+  .header > a {
+    z-index: 1001; }
+
+.parent {
+  line-height: 70px; }
+
+.children {
+  line-height: 50px;
+  font-size: 14px; }
+
+.parent,
+.children {
+  background-color: #07B2B8; }
+
+.events {
+  left: 20%; }
+
+.about-us,
+.about-us-more a {
+  left: 40%; }
+
+.useful-information,
+.useful-information-more a {
+  left: 60%; }
+
+.about-us-more,
+.useful-information-more {
+  display: none;
+  position: relative;
+  top: 68px;
+  transition: .2s all; }
+
+.teacher-collective,
+.to-students {
+  top: calc(50px - 1px); }
+
+.student-self-government,
+.reports {
+  top: calc(100px - 2px); }
+
+.psychologist-advice {
+  top: calc(150px - 3px); }
+
+.contacts {
+  left: 80%; }
+
+.about-us-container:hover .about-us-more {
+  display: block; }
+
+.useful-information-container:hover .useful-information-more {
+  display: block; }
+
+.active {
+  background-color: #F4D716; }
+
+footer {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  background-color: #0780B5;
+  margin-top: 240px; }
+  footer img {
+    position: absolute;
+    top: -87px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 147px;
+    height: 150px;
+    z-index: 1000; }
+  footer .contacts {
+    float: left;
+    margin: 30px 0 0 52px;
+    color: white;
+    font-size: 16px;
+    font-family: sans-serif; }
+    footer .contacts p {
+      line-height: 130%; }
+      footer .contacts p:first-child {
+        font-family: "Comfortaa"; }
+  footer a.fa-facebook {
+    float: right;
+    width: 48px;
+    height: 48px;
+    margin: calc(150px / 2 - 48px / 2) 36px 0 0;
+    text-align: center;
+    line-height: 48px;
+    background-color: #07B2B8;
+    border-radius: 100%;
+    color: #333;
+    font-size: 23px;
+    transition: .3s all ease;
+    cursor: pointer; }
+    footer a.fa-facebook:hover {
+      background-color: #F4D716; }
+
+.contact-container {
+  width: 1200px;
+  height: 500px;
+  margin: 150px auto 0 auto;
+  box-shadow: 0 0 100px grey; }
+
+.contact-text {
+  float: left;
+  width: 350px;
+  box-sizing: border-box;
+  padding: 40px;
+  line-height: 200%;
+  color: #333;
+  font-family: "Comfortaa"; }
+
+.map {
+  float: right;
+  width: 850px;
+  height: 500px; }
