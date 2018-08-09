@@ -96,9 +96,8 @@ $(document).keydown(function(e) {
 
 
 
-
-
-var announcementBtnClick;
+let announcementBtnClick,
+	uppered;
 
 scrollAudit();
 function scrollAudit() {
@@ -114,7 +113,17 @@ function scrollAudit() {
 	}
 
 	if ($(document).scrollTop() >= 3200) {
-		startLiveNumbers();
+		if (!uppered) {
+			uppered = true;
+
+			let upperData = {
+				delay: 1,
+				time: 300
+			};
+			$('.live-number-1').counterUp(upperData);
+			$('.live-number-2').counterUp(upperData);
+			$('.live-number-3').counterUp(upperData);
+		}
 	}
 
 	$('.info-full-1, .info-full-2, .info-full-3').hide(800);
@@ -177,44 +186,6 @@ $(document).click(function() {
 	$('.info-full-1, .info-full-2, .info-full-3').hide(800);
 	closeAnnouncement();
 });
-
-// Live numbers >
-var start;
-function startLiveNumbers() {
-	if (!start) {
-		var time = 4000,
-			students = {
-				number: 0,
-				speed: time / 801
-			},
-			teachers = {
-				number: 0,
-				speed: time / 70
-			},
-			yearsOld = {
-				number: 0,
-				speed: time / 27
-			};
-
-		studentsTimer = setInterval(function() {
-			$('.live-number-1').html(students.number++);
-			if (students.number == 801 + 1) clearInterval(studentsTimer);
-		}, students.speed);
-
-		teachersTimer = setInterval(function() {
-			$('.live-number-2').html(teachers.number++);
-			if (teachers.number == 70 + 1) clearInterval(teachersTimer);
-		}, teachers.speed);
-
-		yearsOldTimer = setInterval(function() {
-			$('.live-number-3').html(yearsOld.number++);
-			if (yearsOld.number == 27 + 1) clearInterval(yearsOldTimer);
-		}, yearsOld.speed);
-
-		start = 1;
-	}
-}
-// < Live numbers
 
 // Last three events >
 $.post('media/php/getThreeLastEvents.php', function(data) {

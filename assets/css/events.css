@@ -230,10 +230,11 @@ p.main-events-title {
       background-color: #aedede; }
 
 .events-title {
-  margin: 150px 0 30px 0;
+  margin: 145px 0 30px 0;
   text-align: center;
-  font-size: 26px;
-  font-family: "Comfortaa"; }
+  font-size: 28px;
+  font-family: "Comfortaa";
+  color: #666; }
 
 .events-paginator {
   text-align: center;
