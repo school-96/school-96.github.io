@@ -169,15 +169,19 @@ footer {
     footer a.fa-facebook:hover {
       background-color: #F4D716; }
 
+@media screen and (max-width: 950px) {
+  .header {
+    font-size: 10px; } }
+
 .contact-container {
-  width: 1200px;
-  height: 500px;
-  margin: 150px auto 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: no-wrap;
+  margin: 150px 60px 0 60px;
   box-shadow: 0 0 100px grey; }
 
 .contact-text {
-  float: left;
-  width: 350px;
+  min-width: 350px;
   box-sizing: border-box;
   padding: 40px;
   line-height: 200%;
@@ -185,6 +189,5 @@ footer {
   font-family: "Comfortaa"; }
 
 .map {
-  float: right;
   width: 850px;
   height: 500px; }

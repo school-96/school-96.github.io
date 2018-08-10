@@ -169,8 +169,12 @@ footer {
     footer a.fa-facebook:hover {
       background-color: #F4D716; }
 
+@media screen and (max-width: 950px) {
+  .header {
+    font-size: 10px; } }
+
 p.main-events-title {
-  margin: 620px 0 10px 0;
+  margin: 120px 0 10px 0;
   text-align: center;
   font-size: 24px;
   font-family: "Comfortaa"; }

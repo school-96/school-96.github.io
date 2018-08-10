@@ -169,6 +169,10 @@ footer {
     footer a.fa-facebook:hover {
       background-color: #F4D716; }
 
+@media screen and (max-width: 950px) {
+  .header {
+    font-size: 10px; } }
+
 .intro {
   position: relative;
   width: 100%;
@@ -361,19 +365,19 @@ p.infos-title {
     float: left; }
 
 p.circles-title {
-  margin: 100px 0 70px 0;
+  margin: 100px 0 20px 0;
   text-align: center;
   font-size: 24px;
   font-family: "Comfortaa"; }
 
 .circles-container {
-  position: relative;
-  margin: 0 auto;
-  width: 1260px; }
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap; }
   .circles-container ul {
     width: 600px;
-    float: left;
     box-sizing: border-box;
+    margin-top: 40px;
     padding: 15px 70px;
     font-size: 16px;
     color: #333;
@@ -382,10 +386,10 @@ p.circles-title {
     list-style-type: square; }
   .circles-container img {
     width: 600px;
-    float: right; }
+    margin-top: 40px; }
 
 p.main-events-title {
-  margin: 620px 0 10px 0;
+  margin: 120px 0 10px 0;
   text-align: center;
   font-size: 24px;
   font-family: "Comfortaa"; }
