@@ -164,7 +164,7 @@ $(document).click(function() {
 });
 
 // Last three events >
-$.getJSON('https://school96.000webhostapp.com/assets/json/events.json', json => {
+$.post('assets/php/getJSON.php', json => {
 	json = JSON.parse(json);
 	console.log(data[0]['title']);
 	let eq = 0;
