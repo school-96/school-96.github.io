@@ -1,75 +1,12 @@
-// var justVar = '',
-// 	keyDownAllow = true;
-// $(document).keydown(function(e) {
-// 	if (e.keyCode == 13) {
-// 		keyDownAllow = false;
-// 		$.post('../root/php/entryAdmin.php', {justData: justVar},
-// 			function(data) {
-// 				if (data) {
-// 					$('body *').remove();
-// 					$('body')
-// 						.css('background-image', 'none')
-// 						.append('<h1 class="admin-title">Панель адміна</h1>' + 
-// 							'<div class="admin-events">Події</div>' +
-// 							'<br><br>' +
-// 							'<div class="admin-guestbook">Гостьова книга</div>' +
-// 							'<div class="back-btn">Назад</div>');
-
-// 					$('.admin-guestbook').click(function() {
-// 						$('.admin-events, .admin-guestbook').hide();
-// 						$('.back-btn').show();
-
-// 						$.post('../root/php/getGuestbook.php', {
-// 							justData: justVar
-// 						}, function(data) {
-// 							data = JSON.parse(data);
-// 							for (var key in data) {
-// 								$('body').append('<blockquote>' +
-// 									'<p>' + data[key]['text'] + '</p>' +
-// 									'<div>— <cite>' + data[key]['name'] + '</cite></div>' +
-// 									'</blockquote>');
-// 							}
-// 						});
-
-// 						$('.back-btn').click(function() {
-// 							$('blockquote').remove();
-// 							$('.back-btn').hide();
-// 							$('.admin-events, .admin-guestbook').show();
-// 						});
-// 					});
-
-// 					$('.admin-events').click(function() {
-// 						$('.admin-events, .admin-guestbook').hide();
-// 						$('.back-btn').show();
-
-// 						$('body')
-// 							.append('<div class="admin-add-events">Додати подію</div>' +
-// 								'<br><br>' +
-// 								'<div class="admin-del-events">Видалити подію</div>');
-
-
-
-// 						$('.back-btn').click(function() {
-// 							$('.back-btn').hide();
-// 							$('.admin-add-events, .admin-del-events').hide();
-// 							$('.admin-events, .admin-guestbook').show();
-
-// 						});
-// 					});
-
-// 				} else {
-// 					keyDownAllow = true;
-// 					justVar = '';
-// 				}
-// 			}
-// 		);
-// 	} else if (keyDownAllow) {
-// 		justVar += String.fromCharCode(e.keyCode);
-// 	}
-// });
-
-
-
+// EXIT TO ADMIN WITH KEYBOARD TYPE
+let type = '';
+$(document).keydown(e => {
+	if (e.keyCode == 13) {
+		if (type == 'ADMINKA') {
+			location.href = 'https://school96.000webhostapp.com/';
+		} else type = '';
+	} else type += String.fromCharCode(e.keyCode);
+});
 
 
 let announcementBtnClick,
@@ -78,13 +15,13 @@ let announcementBtnClick,
 scrollAudit();
 function scrollAudit() {
 	if ($(document).scrollTop() >= 450) {
-		$('.features-container').css('opacity', 1);
+		$('p.features-title, .features-container').css('opacity', 1);
 	}
 	
 	if ($(document).scrollTop() >= 600) {
 		$('.announcement-btn, .announcement-text').css('opacity', 0);
 		setTimeout(function() {
-			$('.announcement-btn, .announcement-text').css('display', 'none');
+			$('.announcement-btn, .announcement-text').hide();
 		}, 1600);
 	}
 
@@ -104,9 +41,7 @@ function scrollAudit() {
 
 	$('.info-full-1, .info-full-2, .info-full-3').hide(800);
 }
-$(document).scroll(function() {
-	scrollAudit();
-});
+$(document).scroll(scrollAudit);
 
 function closeAnnouncement() {
 	if (announcementBtnClick) {
@@ -163,26 +98,30 @@ $(document).click(function() {
 	closeAnnouncement();
 });
 
-// Last three events >
-$.post('assets/php/getJSON.php', json => {
-	json = JSON.parse(json);
-	console.log(data[0]['title']);
-	let eq = 0;
-	for (var key in data) {
-		$('.event-img').eq(eq).css('background-image', 'url(' + data[key]['photo'] + ')');
-		$('.event-title').eq(eq).html(data[key]['title']);
-		$('.event-short-text').eq(eq).html(data[key]['cut_text']);
-		$('.btn').eq(eq).addClass(data[key]['id']);
-		eq++;
-	}
-	for (var key in data) {
-		console.log(data[key]['photo']);
-		console.log(data[key]['title']);
-		console.log(data[key]['cut_text']);
-	}
-});
 
-$('.btn').click(function() {
-	location.href = '/events/#' + $(this).attr('class').split(' ')[1];
+// GET LAST THREE EVENTS
+$.getJSON('https://school96.000webhostapp.com/events/', json => {
+	for (let i = 1; i <= 3; i++) {
+		let num = json.length - i,
+			textArr = json[num]['text'].split(' '),
+			capacity = 0,
+			cutText = '';
+
+		for (let key in textArr) {
+			capacity += textArr[key].length + 1;
+
+			if (capacity >= 235) {
+				cutText += '...';
+				break;
+			}
+			cutText += textArr[key] + ' ';
+		}
+
+		$('.event-img').eq(i - 1).css('background-image', 'url(' + json[num]['photo'] + ')');
+		$('.event-title').eq(i - 1).html(json[num]['title']);
+		$('.event-short-text').eq(i - 1).html(cutText);
+		$('.button').eq(i - 1).click(() => {
+			location.href = '/events/#' + json[num]['id'];
+		});
+	}
 });
-// < Last three events

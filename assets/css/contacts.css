@@ -170,7 +170,8 @@ footer {
       background-color: #F4D716; }
 
 @media screen and (max-width: 950px) {
-  .header {
+  .parent,
+  .children {
     font-size: 10px; } }
 
 .contact-container {
