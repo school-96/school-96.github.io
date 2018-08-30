@@ -100,8 +100,7 @@ $(document).click(function() {
 
 
 // GET LAST THREE EVENTS
-$(document).ready(() => {
-	$.getJSON('https://school96.000webhostapp.com/events/', json => {
+$.getJSON('https://school96.000webhostapp.com/events/', json => {
 	for (let i = 1; i <= 3; i++) {
 		let num = json.length - i,
 			textArr = json[num]['text'].split(' '),
@@ -125,5 +124,4 @@ $(document).ready(() => {
 			location.href = '/events/#' + json[num]['id'];
 		});
 	}
-});
 });
